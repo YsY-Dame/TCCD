@@ -6,6 +6,9 @@ We propose TCCD, a novel data-free knowledge distillation framework for diffusio
 First, Timesteps-Noise Alignment via Multimodal Contrastive Learning strengthens temporal coherence and cross modal understanding by aligning timestep embeddings with corresponding noise representations, ensuring consistent feature learning across denoising steps. 
 
 Second, Interactive Self-Supervised Learning enables the teacher model to iteratively guide the student by providing noise predictions, facilitating more accurate modeling of complex noise dynamics throughout the diffusion process. Architecture of the Proposed Method—TCCD details can be found in the figure below. 
+
+
+
 ![TCCD](.\Architecture_fig\Architecture.png)
 
 ## TCCD APPENDIX
