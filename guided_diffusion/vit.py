@@ -96,7 +96,7 @@ class ViT(nn.Module):
         )
 
         self.pos_embedding = nn.Parameter(torch.randn(1, num_patches+1, dim))
-        self.cls_token = nn.Parameter(torch.randn(1, 1, dim))					# nn.Parameter()定义可学习参数
+        self.cls_token = nn.Parameter(torch.randn(1, 1, dim))					
         self.dropout = nn.Dropout(emb_dropout)
 
         self.transformer = Transformer(dim, depth, heads, dim_head, mlp_dim, dropout)
@@ -105,19 +105,19 @@ class ViT(nn.Module):
         self.to_latent = nn.Identity()
 
     def forward(self, img):
-        x = self.to_patch_embedding(img)        # b c (h p1) (w p2) -> b (h w) (p1 p2 c) -> b (h w) dim
-        b, n, _ = x.shape           # b表示batchSize, n表示每个块的空间分辨率, _表示一个块内有多少个值
+        x = self.to_patch_embedding(img)        
+        b, n, _ = x.shape           
 
-        cls_tokens = repeat(self.cls_token, '() n d -> b n d', b=b)  # self.cls_token: (1, 1, dim) -> cls_tokens: (batchSize, 1, dim)
-        x = torch.cat((cls_tokens, x), dim=1)               # 将cls_token拼接到patch token中去       (b, 65, dim)
-        x += self.pos_embedding[:, :(n+1)]                  # 加位置嵌入（直接加）      (b, 65, dim)
+        cls_tokens = repeat(self.cls_token, '() n d -> b n d', b=b)  
+        x = torch.cat((cls_tokens, x), dim=1)               
+        x += self.pos_embedding[:, :(n+1)]               
         x = self.dropout(x)
 
-        x = self.transformer(x)                                                 # (b, 65, dim)
+        x = self.transformer(x)                                                 
 
-        x = x[:, 0]                   # (b, dim)
+        x = x[:, 0]                   
 
-        x = self.to_latent(x)                                                   # Identity (b, dim)
+        x = self.to_latent(x)                                                   
 
         return x
 

@@ -998,23 +998,7 @@ class GaussianDiffusion:
                 noise = th.randn_like(x_t, device=x_t.device, dtype=x_t.dtype)
                 x_t = x_t + _extract_into_tensor(self.sqrt_one_minus_alphas_cumprod, t, x_t.shape) * input_perturb * noise
 
-            ##################################################
-            # 自蒸馏掩码部分
-            #if not self_supervised:
-                #per = random.random()
-                #if per < 0.3:
-                    #masking_ratio = 0.1
-                    #num_masked = int(masking_ratio * x_t.shape[-1] * x_t.shape[-2])
-                    #rand_indices = th.randperm(x_t.shape[-1] * x_t.shape[-2], device=x_t.device)
-                    #masked_indices = rand_indices[:num_masked]
-                    #unmasked_indices = rand_indices[num_masked:]
-                    #mask_matrix = th.zeros_like(x_t, device=x_t.device).flatten(2)
-                    #mask_matrix[:, :, masked_indices] = 0
-                    #mask_matrix[:, :, unmasked_indices] = 1
-                    #mask_matrix = mask_matrix.reshape(x_t.shape)
-                    #x_t = x_t * mask_matrix
-                    # out['model_output'] = out['model_output'] * mask_matrix
-            ##################################################
+
 
             if self_supervised:
                 model_output, _ = model(out['model_output'], self._scale_timesteps(t), **model_kwargs)
@@ -1066,7 +1050,7 @@ class GaussianDiffusion:
             # terms["mse"] = mean_flat((teacher_model_output - model_output) ** 2)
 
             ##################################################
-            # 针对图像和时间编码加入clip 损失部分如不需要可将最后的clip_loss注释
+            # Timesteps-Noise Alignment via Multimodal Contrastive Learning
             if "vb" in terms:
                 if clip_loss is not None:
                     terms["loss"] = terms["mse"] + terms["vb"] + clip_loss

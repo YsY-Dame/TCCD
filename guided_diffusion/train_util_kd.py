@@ -708,7 +708,7 @@ class KDTrainLoop(TrainLoop):
             self.mp_trainer.backward(loss)
 
             ####################################
-            # 自监督部分
+            # Interactive Self-Supervised Learning between Teacher and Student
             if last_batch or not self.use_ddp:
                 losses = compute_losses_self_super()
             else:

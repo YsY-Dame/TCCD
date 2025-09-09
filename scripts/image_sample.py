@@ -31,8 +31,8 @@ from guided_diffusion.script_util import str2bool
 def main():
     # args
     argparser = argparse.ArgumentParser()
-    argparser.add_argument("--config", type=str, default=r'/root/autodl-tmp/clip-sa/guided-diffusion/yaml/cifar10_32/exp/CIFAR10-32M-Dynamic-0.4.yaml')
-    argparser.add_argument("--model_path", type=str,default=r'/root/autodl-tmp/clip-sa/guided-diffusion/experiments/kd/CIFAR10-32M-Dynamic-0-2025-08-29-14-39-48-113774/model120000.pt')
+    argparser.add_argument("--config", type=str, default=r'.\yaml\cifar10_32\exp\CIFAR10-14M-Dynamic-0.4.yaml')
+    argparser.add_argument("--model_path", type=str,default=r'your_student_model_path')
     argparser.add_argument("--batch_size", type=int, default=2500)
     argparser.add_argument("--num_samples", type=int, default=50000)
     argparser.add_argument("--timestep_respacing", type=str, default='50')

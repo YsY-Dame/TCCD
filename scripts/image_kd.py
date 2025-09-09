@@ -29,7 +29,7 @@ from scripts.utils import check_args
 
 def main():
     argparser = argparse.ArgumentParser()
-    argparser.add_argument("--config", type=str, default=r'/root/autodl-tmp/clip-sa/guided-diffusion/yaml/cifar10_32/exp/CIFAR10-32M-Dynamic-0.4.yaml')
+    argparser.add_argument("--config", type=str, default=r'.\yaml\cifar10_32\exp\CIFAR10-14M-Dynamic-0.4.yaml')
     argparser.add_argument("--resume_checkpoint", type=str, default='', help="resume from checkpoint directory")
     argparser.add_argument("--resume_step", type=int, default=0, help="how many times to resume, for config name")
     argparser.add_argument("--wandb", action="store_true", help="use wandb")
