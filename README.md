@@ -11,6 +11,7 @@ conda activate adm
 
 pip install torch torchvision torchaudio
 pip install tqdm wandb blobfile timm thop omegaconf
+pip install einops
 conda install -c conda-forge mpi4py mpich
 
 # make folders to save experimental results
