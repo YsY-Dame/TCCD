@@ -1,7 +1,7 @@
 # TCCD: SELF-SUPERVISED TIME-CONSISTENT CONTRASTIVE DISTILLATION
 
 ## Summary of our paper
-We propose TCCD, a novel data-free knowledge distillation framework for diffusion models built upon the Dynamic Iterative Distillation paradigm.
+We propose TCCD, a novel data-free knowledge distillation framework for diffusion models built upon the Dynamic Iterative Distillation paradigm. TCCD introduces two synergistic stages. First, Timesteps-Noise Alignment via Multimodal Contrastive Learning strengthens temporal coherence and cross modal understanding by aligning timestep embeddings with corresponding noise representations, ensuring consistent feature learning across denoising steps. Second, Interactive Self-Supervised Learning enables the teacher model to iteratively guide the student by providing noise predictions, facilitating more accurate modeling of complex noise dynamics throughout the diffusion process. Architecture of the Proposed Method—TCCD details can be found in the figure below. 
 
 ## Installation
 
