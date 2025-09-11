@@ -1,4 +1,4 @@
-# TCCD: DATAFREE TIME-CONSISTENT CONTRASTIVE DISTILLATION FOR DIFFUSIONMODEL
+# TCCD: DATAFREE TIME-CONSISTENT CONTRASTIVE DISTILLATION FOR DIFFUSION MODEL
 
 ## Summary of our paper
 We propose TCCD, a novel data-free knowledge distillation framework for diffusion models built upon the Dynamic Iterative Distillation paradigm. TCCD introduces two synergistic stages. 
