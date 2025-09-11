@@ -9,7 +9,7 @@ Second, Interactive Self-Supervised Learning enables the teacher model to iterat
 
 
 
-![TCCD](./Architecture_fig/Architecture.png)
+![TCCD](./Architecture_fig/newstArchitecture.png)
 
 ## TCCD APPENDIX
 For more details on the visualizations of TCCD, please refer to [TCCD_APPENDIX](TCCD_APPENDIX.pdf)
